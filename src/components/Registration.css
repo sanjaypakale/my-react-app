@@ -1,0 +1,8 @@
+.label{
+    font-weight: bold;
+    text-align: left;
+}
+
+.form-control{    
+    border-style: 1px solid gray !important;
+}

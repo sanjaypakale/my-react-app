@@ -1,0 +1,44 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+      "version": "1.0.0",
+      "title": "Sample API",
+      "description": "A simple API with Swagger documentation"
+    },
+    "paths": {
+      "/user/{userId}": {
+        "get": {
+          "summary": "Get user by ID",
+          "description": "Returns information about a user by ID",
+          "parameters": [
+            {
+              "name": "userId",
+              "in": "path",
+              "required": true,
+              "schema": {
+                "type": "integer"
+              }
+            }
+          ],
+          "responses": {
+            "200": {
+              "description": "Successful response",
+              "content": {
+                "application/json": {
+                  "example": {
+                    "userId": 123,
+                    "username": "john_doe",
+                    "email": "john.doe@example.com"
+                  }
+                }
+              }
+            },
+            "404": {
+              "description": "User not found"
+            }
+          }
+        }
+      }
+    }
+  }
+  
