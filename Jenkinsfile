@@ -18,7 +18,7 @@ pipeline {
         stage('Read Properties') {
             steps {
                 script {
-                    bat 'echo Current Directory: %DIR%'
+                 
                     echo 'Begin reading properties file'
                     // Define the path to your properties file
                     def propertiesFilePath = 'jenkins-properties.properties'
@@ -27,7 +27,7 @@ pipeline {
                     def properties = readProperties file: propertiesFilePath
 
                     // Access individual properties
-                    BUILD_CMD = properties.getProperty('BUILD_CMD')
+                    BUILD_CMD = properties('BUILD_CMD')
 
                     // Print the properties (optional)
                     echo "Property 1: ${BUILD_CMD}"
