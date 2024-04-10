@@ -1,6 +1,7 @@
+def BUILD_CMD
 pipeline {
     agent any
-    def BUILD_CMD
+    
     stages {
         stage('Checkout') {
             steps {
