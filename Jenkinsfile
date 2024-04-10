@@ -20,10 +20,10 @@ pipeline {
                     bat 'echo Current Directory: %DIR%'
                     echo 'Begin reading properties file'
                     // Define the path to your properties file
-                    def propertiesFilePath = 'jenkins-properties.properties'
+                    String propertiesFilePath = 'jenkins-properties.properties'
 
                     // Read properties from the file
-                    def properties = readProperties(file: propertiesFilePath)
+                    Map<String, String> properties = readProperties file: propertiesFilePath
 
                     // Access individual properties
                     BUILD_CMD = properties.getProperty('BUILD_CMD')
