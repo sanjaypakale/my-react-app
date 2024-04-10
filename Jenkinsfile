@@ -27,7 +27,7 @@ pipeline {
                     def properties = readProperties file: propertiesFilePath
 
                     // Access individual properties
-                    def var1 = properties('BUILD_CMD')
+                    def var1 = properties['BUILD_CMD']
 
                     // Print the properties (optional)
                     echo "Property 1: ${var1}"
