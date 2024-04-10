@@ -41,11 +41,23 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Running build command'
-                bat "${BUILD_CMD}"
+                //bat "${BUILD_CMD}"
             }
         }
 
-    // Add more stages as needed
+   stage('Notification') {
+            steps {
+                emailext(
+                    subject: "Build Notification",
+                    body: "The build has completed.",
+                    to: "sanjaypakale@gmail.com",
+                    mimeType: 'text/html',
+                    replyTo: "sanjaypakale@gmail.com",
+                    attachLog: true,
+                    from: "sanjaypakale@gmail.com"
+                )
+            }
+        }
     }
 
 // Add post-build actions if needed
