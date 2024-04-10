@@ -41,7 +41,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Running build command'
-                bat "${buildCmd}"
+                bat "${BUILD_CMD}"
             }
         }
 
