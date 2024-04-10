@@ -18,7 +18,6 @@ pipeline {
         stage('Read Properties') {
             steps {
                 script {
-                 
                     echo 'Begin reading properties file'
                     // Define the path to your properties file
                     def propertiesFilePath = 'jenkins-properties.properties'
@@ -27,10 +26,10 @@ pipeline {
                     def properties = readProperties file: propertiesFilePath
 
                     // Access individual properties
-                    def var1 = properties['BUILD_CMD']
+                    BUILD_CMD = properties['BUILD_CMD']
 
                     // Print the properties (optional)
-                    echo "Property 1: ${var1}"
+                    echo "Property 1: ${BUILD_CMD}"
 
                 // You can use the properties in your build steps
                 // For example:
@@ -41,7 +40,8 @@ pipeline {
 
         stage('Build') {
             steps {
-                echo 'Build stage goes here'
+                echo 'Running build command'
+                bat "${buildCmd}"
             }
         }
 
