@@ -1,7 +1,7 @@
 def BUILD_CMD
 pipeline {
     agent any
-    
+
     stages {
         stage('Checkout') {
             steps {
@@ -17,7 +17,8 @@ pipeline {
         stage('Read Properties') {
             steps {
                 script {
-                    echo "Begin reading properties file"
+                    bat 'echo Current Directory: %CD%'
+                    echo 'Begin reading properties file'
                     // Define the path to your properties file
                     def propertiesFilePath = 'jenkins-properties.properties'
 
