@@ -46,7 +46,9 @@ pipeline {
         }
         stage('Clean Workspace') {
             steps {
+                echo "Cleaning workspace..."
                 deleteDir()
+                echo "Workspace cleaned up..s"
             }
         }
    stage('Notification') {
