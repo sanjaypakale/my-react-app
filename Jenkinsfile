@@ -17,6 +17,7 @@ pipeline {
         stage('Read Properties') {
             steps {
                 script {
+                    echo "Begin reading properties file"
                     // Define the path to your properties file
                     def propertiesFilePath = 'jenkins-properties.properties'
 
