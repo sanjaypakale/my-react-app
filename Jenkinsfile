@@ -1,3 +1,4 @@
+/* groovylint-disable-next-line CompileStatic */
 def BUILD_CMD
 pipeline {
     agent any
@@ -20,10 +21,10 @@ pipeline {
                     bat 'echo Current Directory: %DIR%'
                     echo 'Begin reading properties file'
                     // Define the path to your properties file
-                    String propertiesFilePath = 'jenkins-properties.properties'
+                    def propertiesFilePath = 'jenkins-properties.properties'
 
                     // Read properties from the file
-                    Map<String, String> properties = readProperties file: propertiesFilePath
+                    def properties = readProperties file: propertiesFilePath
 
                     // Access individual properties
                     BUILD_CMD = properties.getProperty('BUILD_CMD')
