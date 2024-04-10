@@ -41,7 +41,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Running build command'
-                bat "${BUILD_CMD}"
+                //bat "${BUILD_CMD}"
             }
         }
         stage('Clean Workspace') {
