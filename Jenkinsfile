@@ -27,10 +27,10 @@ pipeline {
                     def properties = readProperties file: propertiesFilePath
 
                     // Access individual properties
-                    BUILD_CMD = properties('BUILD_CMD')
+                    def var1 = properties('BUILD_CMD')
 
                     // Print the properties (optional)
-                    echo "Property 1: ${BUILD_CMD}"
+                    echo "Property 1: ${var1}"
 
                 // You can use the properties in your build steps
                 // For example:
