@@ -53,8 +53,19 @@ pipeline {
         }
    stage('Notification') {
             steps {
+
+                def buildStatus = currentBuild.result
+                def subject
+
+                    // Determine the build status and set the subject accordingly
+                    if (buildStatus == 'SUCCESS') {
+                        subject = "Build Successful - ${env.JOB_NAME}"
+                    } else {
+                        subject = "Build Failed - ${env.JOB_NAME}"
+                    }
+
                 emailext(
-                    subject: "Build Notification",
+                    subject: $subject,
                     body: "The build has completed.",
                     to: "sanjaypakale@gmail.com",
                     mimeType: 'text/html',
